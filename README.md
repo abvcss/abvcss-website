@@ -86,7 +86,7 @@ id selectors can be used as nested or child selectors like this:
 
 In this way, you should follow the next rules:
 
-`block-name__elem-name_mod-name_mod-val`
+```block-name__elem-name_mod-name_mod-val```
             
 1. Names are written in lowercase Latin letters.
 2. Words are separated by a hyphen (-).
