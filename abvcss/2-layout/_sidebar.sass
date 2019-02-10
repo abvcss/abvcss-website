@@ -1,0 +1,26 @@
+////
+/// Sidebar layout
+////
+    
+#sidebar
+  grid-area: sidebar
+  background-color: #f6f6f6
+  transition: all ease .4s  
+
+.Dark-mode
+  #sidebar
+    background-color: #363636
+  
+
+@media #{$media} and (max-width: $width-T) 
+  #sidebar
+    display: block
+    position: fixed
+    bottom: 0px
+    height: 60px
+    width: 100%
+    border-top: 1px solid #ddd
+    background-color: #f6f6f6
+
+  .menu-opened #sidebar
+    height: 100%

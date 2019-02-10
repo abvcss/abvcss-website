@@ -1,0 +1,30 @@
+////
+/// Mobile menu block
+////
+
+.mobile-menu
+  display: none
+
+@media #{$media} and (max-width: $width-T) 
+  .mobile-menu
+    display: block
+    width: 100%
+    height: 60px
+    box-sizing: border-box
+    padding: 10px 0px
+    font-size: 30px  
+    text-align: center
+    text-transform: uppercase
+    background-color: #f6f6f6
+
+    &__arrow
+      display: inline-block
+      width: 40px
+      height: 40px
+      box-sizing: border-box
+      padding: 5px
+      margin-right: 15px
+      transition: all ease .4s
+
+      &_active
+        transform: rotate(180deg)

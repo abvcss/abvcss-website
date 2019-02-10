@@ -1,0 +1,39 @@
+////
+/// Skins
+////
+
+@media #{$media} and (max-width: $width-M)
+  .Adaptive
+    display: block
+    text-align: center
+
+.Img
+  
+.Align-center
+  text-align: center
+
+.Highlighted
+  color: $black
+  background-color: rgba($black, 0.05)
+  font-style: italic
+  border-radius: 4px
+
+.Grey-text
+  color: #ccc
+
+.Dark-text
+  color: #555
+
+.Black-text
+  color: $black
+
+.Dark-mode
+  .Black-text
+    color: $white
+
+  .Dark-text
+    color: #ddd
+
+  .Highlighted
+    color: $white
+    background-color: rgba($white, 0.05)

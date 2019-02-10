@@ -1,0 +1,31 @@
+////
+/// Theme mode button block
+////
+
+.theme-mode-button
+  display: inline-block
+  width: 80px
+  height: 80px
+  box-sizing: border-box
+  padding: 15px
+  border-radius: 50%
+  background-color: $description-block-color
+  text-align: center
+  color: $white
+  font-size: 18px
+  line-height: 25px
+  font-weight: $bold
+  box-shadow: 2px 2px 3px $description-block-color
+  cursor: pointer
+
+  &::before
+    content: 'Dark'
+    display: inline
+
+  &_active
+    background-color: $white
+    color: $black
+
+    &::before
+      content: 'Light'
+      display: inline

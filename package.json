@@ -1,0 +1,38 @@
+{
+  "name": "abvCSS",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/ABVanton200/abvCSS.git",
+  "author": "Anton Babakhin <abvanton@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build:prod": "webpack --config webpack.prod.js",
+    "build:dev": "webpack --config webpack.dev.js",
+    "start:dev": "webpack-dev-server"
+  },
+  "dependencies": {
+    "jquery": "^3.3.1",
+    "js-cookie": "^2.2.0",
+    "normalize.css": "^8.0.1"
+  },
+  "devDependencies": {
+    "autoprefixer": "^9.4.4",
+    "css-loader": "^2.1.0",
+    "css-mqpacker": "^7.0.0",
+    "cssnano": "^4.1.8",
+    "file-loader": "^3.0.1",
+    "mini-css-extract-plugin": "^0.5.0",
+    "node-sass": "^4.11.0",
+    "postcss-loader": "^3.0.0",
+    "postcss-normalize": "^7.0.1",
+    "postcss-preset-env": "^6.5.0",
+    "rucksack-css": "^1.0.2",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
+    "url-loader": "^1.1.2",
+    "webpack": "^4.28.1",
+    "webpack-cli": "^3.2.1",
+    "webpack-dev-server": "^3.1.14",
+    "webpack-merge": "^4.2.1"
+  }
+}

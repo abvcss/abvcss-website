@@ -1,0 +1,14 @@
+////
+/// Main text block
+////
+
+.main-text
+  font-size: responsive 18px 18px
+  font-weight: normal
+  padding: 10px 10px
+
+@media #{$media} and (max-width: $width-M)
+  .main-text
+    &__image
+      width: 90%
+    
