@@ -86,7 +86,7 @@ id selectors can be used as nested or child selectors like this:
 
 In this way, you should follow the next rules:
 
-> block-name__elem-name_mod-name_mod-val
+`block-name__elem-name_mod-name_mod-val`
             
 1. Names are written in lowercase Latin letters.
 2. Words are separated by a hyphen (-).
@@ -158,7 +158,7 @@ Due to Skin classes, CSS code is reduced, you can also dinamically change design
 
 According to abvCSS, DOM classes should match this formula:
 
-> ```[Skin_class_1 [Skin_class_2 […]]] [block_class_1 [block_class_2]] [element_class] [modifier_class_1 [modifier_class_2 […]]]```
+```[Skin_class_1 [Skin_class_2 […]]] [block_class_1 [block_class_2]] [element_class] [modifier_class_1 [modifier_class_2 […]]]```
             
 You need to follow the next rules:
                 
