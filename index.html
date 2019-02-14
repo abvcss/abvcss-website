@@ -229,7 +229,44 @@ a:hover {
             <div class="Black-text main-text">All sources are located in <b>1-base</b>, <b>2-layout</b>, <b>3-blocks</b>, <b>4-skins</b> directories. Module <b>settings</b>
                 includes preprocessor variables and other settings.
             </div>
-            <div class="Black-text main-text"></div>
+            <div id="react" class="Black-text title">abvCSS + React</div>
+            <div class="Black-text main-text">React - one of the most popular frameworks for creating dynamic user interfaces. It is fully compatible with the abvCSS framework.</div>
+            <div class="Black-text main-text">This bundle allows you to use the most advanced frontend technologies for today.</div>
+            <div class="Black-text main-text">If you use such a <b>cssinjs</b> framework as <a href="https://www.styled-components.com" target="_blank"><b>styled-components</b></a>, you probably will not need to write Blocks styles.</div>
+            <div class="Black-text main-text">To install abvCSS + React starter, follow these steps:</div>
+            <div class="Black-text main-text">Install <a href="https://yeoman.io" target="_blank"><b>Yeoman</b></a> (if you have not already done so):</div>
+            <pre><code class="language-markup">npm install -g yo</code></pre>
+            <div class="Black-text main-text">Install generator abvcss+react:</div>
+            <pre><code class="language-markup">npm install -g generator-abvcss-react</code></pre>
+            <div class="Black-text main-text">In empty folder launch abvcss+react installing:</div>
+            <pre><code class="language-markup">yo abvcss-react</code></pre>
+            <div class="Black-text main-text">Then you should answer some questions about configuration.</div>
+            <div class="Black-text main-text">After this, there will be a project with the following structure:</div>
+            <pre><code class="language-none">project
+├── index.html
+├── LICENSE
+├── .babelrc
+├── package.json
+├── README.md
+├── webpack.common.js
+├── webpack.dev.js
+├── webpack.prod.js
+├── src
+│   └── index.jsx
+└── abvcss
+    ├── 1-base
+    ├── 2-layout
+    ├── 3-blocks
+    ├── 4-skins
+    ├── _placeholder-classes.sass
+    ├── _settings.sass
+    └── style.sass</code></pre>
+            <div class="Black-text main-text">You can bundle the project in two modes.</div>
+            <div class="Black-text main-text">Development mode:</div>
+            <pre><code class="language-markup">npm run build:dev</code></pre>
+            <div class="Black-text main-text">Production mode:</div>
+            <pre><code class="language-markup">npm run build:prod</code></pre>
+            <div class="Black-text main-text">After bundling visit <b>dist</b> folder and find <b>main.css</b> and <b>main.js</b> files. You can attach this files to a web page.</div>
         </div>
         <div id="sidebar">
             <div class="mobile-menu">
@@ -254,6 +291,7 @@ a:hover {
                 <ul class="sidebar-menu__list">
                     <li><a href="#installing" class="Dark-text sidebar-menu__list-item">Installing</a></li>
                 </ul>
+                <a href="#react" class="Black-text sidebar-menu__title">abvCSS + React</a>
             </div>
         </div>
         <div id="footer">
