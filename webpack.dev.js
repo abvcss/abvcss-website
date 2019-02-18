@@ -2,6 +2,8 @@ const merge = require('webpack-merge');
 const common = require('./webpack.common.js');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const postcssPresetEnv = require('postcss-preset-env');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const path = require('path');
 
 module.exports = merge(common, {
     mode: 'development',
@@ -32,7 +34,7 @@ module.exports = merge(common, {
                                 browsers: '> 5%',                                                          
                                 autoprefixer: { grid: true }
                             }),
-                            require('rucksack-css')                            
+                            require('rucksack-css')
                         ]                        
                     }
                 },                                
@@ -66,5 +68,13 @@ module.exports = merge(common, {
               }
             ]
         }]
-    }
+    },
+
+    // Learn https://web.dev/fast/use-imagemin-to-compress-images
+    plugins: [
+        new CopyWebpackPlugin([{
+          from: 'img/**/**',
+          to: path.resolve(__dirname, 'dist')
+        }])
+    ]
 });
