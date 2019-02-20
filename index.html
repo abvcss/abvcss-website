@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=0.8">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>abvCSS - CSS-methgodology & framework</title>
+    <link rel="icon" type="image/x-icon" href="./dist/img/favicon.ico">
     <link rel="stylesheet" type="text/css" href="./dist/main.css">
     <link href="./assets/prism.css" rel="stylesheet" />
     <script src="./dist/main.js" async></script>
@@ -311,5 +312,13 @@ a:hover {
     </div>
     
     <script src="./assets/prism.js"></script>
+
+    <script>
+        if ('serviceWorker' in navigator) {
+          window.addEventListener('load', () => {
+            navigator.serviceWorker.register('/sw.js');
+          });
+        }
+    </script>
 </body>
 </html>
