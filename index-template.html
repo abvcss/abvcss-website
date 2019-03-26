@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <link rel="icon" type="image/x-icon" href="./dist/img/favicon.ico">    
+    <link href="./assets/prism.css" rel="stylesheet" />
+    <link rel="manifest" href="./dist/manifest.json" crossorigin="use-credentials">
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript" >
+        (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+        (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+    
+        ym(52315894, "init", {
+            id:52315894,
+            clickmap:true,
+            trackLinks:true,
+            accurateTrackBounce:true,
+            webvisor:true
+        });
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/52315894" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+</head>
+<body class="Dark-mode">
+    <div id="container">
+        <div id="header">
+            <div class="header">
+                <div class="Adaptive header__logo">
+                    <img class="header__img" src="./dist/img/abvCSS-logo.png" srcset="./dist/img/abvCSS-logo-2x.png 2x" alt="abvCSS">
+                </div>
+                <div class="Adaptive Grey-text header__creator">
+                    by Anton Babakhin
+                </div>
+                <div class="header__github">
+                    <a class="header__github-link" href="https://github.com/abvcss/abvcss" target="_blank"></a>                    
+                </div>
+            </div>
+        </div>
+        <div id="description">
+            <div class="Grey-text description">
+                <p>abvCSS is a CSS-methodology and framework for creating modern, dynamic and supported web interfaces. Thanks to the architecture and rules the development process is accelerated. This methodology makes it easy to re-use styles.</p>                
+                <p>Framework abvCSS out of the box supports CSS preprocessors like Sass and Less, postprocessor PostCSS, normalize.css and UI libraries Bootstrap, Foundation and Bulma.</p>
+                <p><a href="#methodology" class="Adaptive button">Methodology</a><a href="#framework" class="Adaptive button">Framework</a></p>
+            </div>
+        </div>
+        <div id="content">
+            <div id="methodology" class="Black-text title">Methodology abvCSS</div>            
+            <div id="architecture" class="Black-text subheading">Project architecture</div>            
+            <div class="Black-text main-text">
+                According to abvCSS methodology, all styles are divided into 4 categories:
+                <ol>
+                    <li>Base.</li>
+                    <li>Layout.</li>
+                    <li>Blocks.</li>
+                    <li>Skins.</li>
+                </ol>
+                <b id="base">Base</b> - base styles. In this category you should use tag selectors and attribute selectors like this: 
+            </div>
+<pre><code class="language-css">body {
+    font-family: Arial;
+    background-color: #fff;  
+    color: #0e0e0e;
+}
+    
+a {
+    color: #1894c4;
+}
+
+a:hover {
+    color: #df2e30;
+}</code></pre>
+            <div class="Black-text main-text">You do not need to use <b>!important</b> modifier or other selectors in base styles.</div>
+            <div class="Black-text main-text">It is good to use popular library <b>normalize.css</b> in this category.</div>
+            <div class="Black-text main-text"><b id="layout">Layout</b> - layout styles. This type of styles should be applied to the structural blocks that are used on the page once.
+                It is header, footer, menu, sidebar etc.
+            </div>
+            <div class="Black-text Align-center main-text"><img class="main-text__image" src="./dist/img/layout.png"></div>
+            <div class="Black-text main-text">In this way, you should use <b>id selectors</b>. Typical example of layout styles:</div>
+            <pre><code class="language-css">#container {
+  display: grid;
+  grid-template-columns: auto 900px 99px auto;
+  grid-template-rows: 200px auto auto 200px;
+  grid-template-areas:
+    "header header header header"
+    " . menu menu . "
+    " . content sidebar . "
+    "footer footer footer footer";
+}
+
+#header {
+  grid-area: header;
+}
+
+#content {
+  grid-area: content
+}</code></pre>
+            <div class="Black-text main-text">id selectors can be used as nested or child selectors like this:</div>
+            <pre><code class="language-css">.tablet #content {
+  display: block;
+  padding: 10px 20px; 
+}
+
+@media screen and (max-width: 375px) {
+  #content {
+    display: block;
+    padding: 5px 15px;
+  }
+}</code></pre>
+            <div class="Black-text main-text"><b id="blocks">Blocks</b> - styles of reusable blocks. Usually they are buttons, paragraphs, titles, galleries etc. To design that elements you need to use <b>class selectors</b>.</div>
+            <div class="Black-text main-text"><b>abvCSS</b> blocks are fully consistent with blocks of <a href="https://en.bem.info/methodology/" target="_blank"><b>BEM methodology</b></a>. To learn BEM blocks visit <a href="https://en.bem.info/methodology/key-concepts/#block" target="_blank"><b>this page</b></a>.</div>
+            <div class="Black-text main-text">In this way, you should follow the next rules:</div>
+            <div class="Highlighted main-text">block-name__elem-name_mod-name_mod-val</div>
+            <div class="Black-text main-text"><ol>
+                    <li>Names are written in lowercase Latin letters.</li>
+                    <li>Words are separated by a hyphen (-).</li>
+                    <li>The block name defines the namespace for its elements and modifiers.</li>
+                    <li>The element name is separated from the block name by a double underscore (__).</li>
+                    <li>The modifier name is separated from the block or element name by a single underscore (_).</li>
+                    <li>The modifier value is separated from the modifier name by a single underscore (_).</li>
+                    <li>For boolean modifiers, the value is not included in the name.</li>                    
+                </ol>
+            </div>
+            <div class="Highlighted main-text">Elements of elements do not exist in the BEM and abvCSS methodologies. The naming rules do not allow creating elements of elements, but you can nest elements inside each other in the DOM tree.</div>
+            <pre><code class="language-css">.header {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.header__logo {
+  display: inline-block;  
+  height: 100px;
+  width: 400px;
+}
+
+.header__github {  
+  float: right;
+  margin-top: 40px;
+  margin-right: 15px;
+  color: #fff;
+}
+
+.header__github_dark {
+  color: #0e0e0e;
+}</code></pre>        
+            <div class="Black-text main-text">Unlike BEM, it is fine for abvCSS to separate appearance styles in other class.</div>
+            <div class="Black-text main-text"><b id="skins">Skins</b> - skinning styles. Skins are styles that describe appearance of the elements.
+                This styles include text color, background color, shadow, rounded corners, decoration style etc.
+            </div>
+            <div class="Black-text Align-center main-text"><img class="main-text__image" src="./dist/img/skins.png"></div>
+            <div class="Black-text main-text">For example, you can notice common decoration of blocks on the picture above: black text color, grey background, grey borders and shadow.
+                It is effective to add that styles to Skin class.</div>
+            <div class="Black-text main-text">To recognize Skin classes and Blocks classes, all Skin classes begin with a <b>capital letter</b>.</div>
+            <pre><code class="language-css">.Grey-skin {
+  color: #0e0e0e;
+  background-color: #eee;
+  border: 1px solid #ccc;
+  box-shadow: 2px 2px 3px #ddd;
+  border-radius: 4px;
+}
+
+.Dark-skin {
+  color: #fff;
+  background-color: #0e0e0e;
+  border: 1px solid #999;
+  border-radius: 4px;
+}</code></pre>
+            <div class="Black-text main-text">Due to Skin classes, CSS code is reduced, you can also dinamically change design theme of the page.</div>
+            <div id="rules" class="Black-text subheading">DOM classes rules</div>
+            <div class="Black-text main-text">According to abvCSS, DOM classes should match this formula:</div>
+            <div class="Highlighted main-text">[Skin_class_1 [Skin_class_2 […]]] [block_class_1 [block_class_2]] [element_class] [modifier_class_1 [modifier_class_2 […]]]</div>
+            <div class="Black-text main-text">You need to follow the next rules:
+                <ol>
+                    <li>There are Skin classes from the beginning (with a capital letter).</li>
+                    <li>Then it is Block class (or two classes for the <a href="https://en.bem.info/methodology/key-concepts/#mix" target="_blank"><b>Mix</b></a>) or Element class.</li>
+                    <li>Finally, there are some Modifier classes.</li>                                    
+                </ol>
+            </div>
+            <div class="Black-text main-text">It is typical div block of abvCSS methodology:</div>
+            <pre><code class="language-markup">&lt;div class="Adaptive Dark-skin list list_big">
+  ...
+&lt;/div></code></pre>
+            <div id="framework" class="Black-text title">Framework abvCSS</div>
+            <div class="Black-text main-text">While installing abvCSS framework it is creating directories and files for abvCSS methodology.</div>
+            <div class="Black-text main-text">Additionally, you can choose your favorite css preprocessor - <a href="https://sass-scss.ru/guide/" target="_blank"><b>Sass</b></a> or <a href="http://lesscss.org" target="_blank"><b>Less</b></a>.</div>
+            <div class="Black-text main-text">You will also be able to add <a href="https://necolas.github.io/normalize.css/" target="_blank"><b>normalize.css</b></a>.</div>
+            <div class="Black-text main-text">Framework abvCSS supports UI libraries like <a href="https://getbootstrap.com/" target="_blank"><b>Bootstrap</b></a>, <a href="https://foundation.zurb.com" target="_blank"><b>Foundation</b></a> or <a href="https://bulma.io" target="_blank"><b>Bulma</b></a>.</div>
+            <div class="Black-text main-text">To transform styles we use <a href="https://github.com/postcss/postcss" target="_blank"><b>PostCSS</b></a> with plugins <a href="https://github.com/jonathantneal/postcss-preset-env" target="_blank"><b>postcss-preset-env</b></a>, <a href="https://www.rucksackcss.org" target="_blank"><b>rucksack-css</b></a>,
+                <a href="https://cssnano.co" target="_blank"><b>cssnano</b></a> and <a href="https://github.com/hail2u/node-css-mqpacker" target="_blank"><b>css-mqpacker</b></a>.</div>
+            <div class="Black-text main-text"><a href="https://webpack.js.org" target="_blank"><b>Webpack</b></a> bundles all this resources.</div>
+            <div id="installing" class="Black-text subheading">Installing</div>            
+            <div class="Black-text main-text">For installing abvCSS framework you must have <a href="https://nodejs.org/" target="_blank"><b>Node.js</b></a> platform.</div>
+            <div class="Black-text main-text">Install <a href="https://yeoman.io" target="_blank"><b>Yeoman</b></a>:</div>
+            <pre><code class="language-markup">npm install -g yo</code></pre>
+            <div class="Black-text main-text">Install generator abvcss:</div>
+            <pre><code class="language-markup">npm install -g generator-abvcss</code></pre>
+            <div class="Black-text main-text">In empty folder launch abvCSS installing:</div>
+            <pre><code class="language-markup">yo abvcss</code></pre>
+            <div class="Black-text main-text">Then you should answer some questions about configuration.</div>
+            <div class="Black-text main-text">After this, there will be a project with the following structure:</div>
+            <pre><code class="language-none">project
+├── index.html
+├── LICENSE
+├── package.json
+├── README.md
+├── webpack.common.js
+├── webpack.dev.js
+├── webpack.prod.js
+└── abvcss
+    ├── 1-base
+    ├── 2-layout
+    ├── 3-blocks
+    ├── 4-skins
+    ├── _placeholder-classes.sass
+    ├── _settings.sass
+    └── style.sass</code></pre>
+            <div class="Black-text main-text">You can bundle the project in two modes.</div>
+            <div class="Black-text main-text">Development mode:</div>
+            <pre><code class="language-markup">npm run build:dev</code></pre>
+            <div class="Black-text main-text">Production mode:</div>
+            <pre><code class="language-markup">npm run build:prod</code></pre>
+            <div class="Black-text main-text">After bundling visit <b>dist</b> folder and find <b>main.css</b> file. You can attach this file to a web page.</div>
+            <div class="Black-text main-text">All sources are located in <b>1-base</b>, <b>2-layout</b>, <b>3-blocks</b>, <b>4-skins</b> directories. Module <b>settings</b>
+                includes preprocessor variables and other settings.
+            </div>
+            <div id="react" class="Black-text title">abvCSS + React</div>
+            <div class="Black-text main-text">React - one of the most popular frameworks for creating dynamic user interfaces. It is fully compatible with the abvCSS framework.</div>
+            <div class="Black-text main-text">This bundle allows you to use the most advanced frontend technologies for today.</div>
+            <div class="Black-text main-text">If you use such a <b>cssinjs</b> framework as <a href="https://www.styled-components.com" target="_blank"><b>styled-components</b></a>, you probably will not need to write Blocks styles.</div>
+            <div class="Black-text main-text">To install abvCSS + React starter, follow these steps:</div>
+            <div class="Black-text main-text">Install <a href="https://yeoman.io" target="_blank"><b>Yeoman</b></a> (if you have not already done so):</div>
+            <pre><code class="language-markup">npm install -g yo</code></pre>
+            <div class="Black-text main-text">Install generator abvcss+react:</div>
+            <pre><code class="language-markup">npm install -g generator-abvcss-react</code></pre>
+            <div class="Black-text main-text">In empty folder launch abvcss+react installing:</div>
+            <pre><code class="language-markup">yo abvcss-react</code></pre>
+            <div class="Black-text main-text">Then you should answer some questions about configuration.</div>
+            <div class="Black-text main-text">After this, there will be a project with the following structure:</div>
+            <pre><code class="language-none">project
+├── index.html
+├── LICENSE
+├── .babelrc
+├── package.json
+├── README.md
+├── webpack.common.js
+├── webpack.dev.js
+├── webpack.prod.js
+├── src
+│   └── index.jsx
+└── abvcss
+    ├── 1-base
+    ├── 2-layout
+    ├── 3-blocks
+    ├── 4-skins
+    ├── _placeholder-classes.sass
+    ├── _settings.sass
+    └── style.sass</code></pre>
+            <div class="Black-text main-text">You can bundle the project in two modes.</div>
+            <div class="Black-text main-text">Development mode:</div>
+            <pre><code class="language-markup">npm run build:dev</code></pre>
+            <div class="Black-text main-text">Production mode:</div>
+            <pre><code class="language-markup">npm run build:prod</code></pre>
+            <div class="Black-text main-text">After bundling visit <b>dist</b> folder and find <b>main.css</b> and <b>main.js</b> files. You can attach this files to a web page.</div>
+        </div>
+        <div id="sidebar">
+            <div class="mobile-menu">
+                <div class="mobile-menu__arrow">
+                    <img src="dist/img/arrow.png" width="29px">
+                </div>
+                Menu
+            </div>
+            <div class="sidebar-menu">
+                <a href="#methodology" class="Black-text sidebar-menu__title">Methodology abvCSS</a>
+                <ul class="sidebar-menu__list">
+                    <li><a href="#architecture" class="Dark-text sidebar-menu__list-item">Project architecture</a></li>
+                    <li><ul class="sidebar-menu__list">
+                        <li><a href="#base" class="Dark-text sidebar-menu__list-item">Base</a></li>                        
+                        <li><a href="#layout" class="Dark-text sidebar-menu__list-item">Layout</a></li>                        
+                        <li><a href="#blocks" class="Dark-text sidebar-menu__list-item">Blocks</a></li>                        
+                        <li><a href="#skins" class="Dark-text sidebar-menu__list-item">Skins</a></li>                        
+                    </ul></li>
+                    <li><a href="#rules" class="Dark-text sidebar-menu__list-item">DOM classes rules</a></li>
+                </ul>
+                <a href="#framework" class="Black-text sidebar-menu__title">Framework abvCSS</a>
+                <ul class="sidebar-menu__list">
+                    <li><a href="#installing" class="Dark-text sidebar-menu__list-item">Installing</a></li>
+                </ul>
+                <a href="#react" class="Black-text sidebar-menu__title">abvCSS + React</a>
+            </div>
+        </div>
+        <div id="footer">
+            <div class="footer">
+                <img class="footer__img" src="dist/img/abvCSS-logo.png" alt="abvCSS logo">
+                <div class="Grey-text footer__copyright">
+                    Copyright © 2019 Anton Babakhin
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="popup">
+        <div class="theme-mode-button theme-mode-button_active">
+            mode
+        </div>
+    </div>
+    
+    <script src="./assets/prism.js"></script>
+
+    <script>
+        if ('serviceWorker' in navigator) {
+          window.addEventListener('load', () => {
+            navigator.serviceWorker.register('./sw.js');
+          });
+        }
+    </script>
+</body>
+</html>
