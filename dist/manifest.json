@@ -35,7 +35,7 @@
   "short_name": "abvCSS Methodology and Framework",
   "orientation": "portrait",
   "display": "standalone",
-  "start_url": ".",
+  "start_url": "../",
   "description": "abvCSS is a CSS-methodology and framework for creating modern, dynamic and supported web interfaces",
   "background_color": "#ffffff"
 }
