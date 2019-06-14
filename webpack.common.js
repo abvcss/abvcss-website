@@ -2,6 +2,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const WorkboxPlugin = require('workbox-webpack-plugin');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
 const path = require('path');
 
 module.exports = {
@@ -14,7 +15,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             title: 'abvCSS - CSS-methgodology & framework',            
             template: 'index-template.html',
-            filename: '../index.html',
+            filename: '../index-intermediate.html',
             minify: {
                 collapseWhitespace: true,
                 removeComments: true,
@@ -23,7 +24,11 @@ module.exports = {
                 removeStyleLinkTypeAttributes: true,
                 useShortDoctype: true
             },
-            hash: true            
+            hash: false            
+        }),
+        new ScriptExtHtmlWebpackPlugin({
+            preload: /\.js$/,
+            defaultAttribute: 'async'
         }),
         new WebpackPwaManifest({
             name: 'abvCSS Methodology and Framework',

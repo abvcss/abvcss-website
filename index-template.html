@@ -30,7 +30,7 @@
         <div id="header">
             <div class="header">
                 <div class="Adaptive header__logo">
-                    <img class="header__img" src="./dist/img/abvCSS-logo.png" srcset="./dist/img/abvCSS-logo-2x.png 2x" alt="abvCSS">
+                    <img class="header__img" src="./dist/img/abvCSS-logo.png" srcset="./dist/img/abvCSS-logo-2x.png 2x" alt="abvCSS methodology logo">
                 </div>
                 <div class="Adaptive Grey-text header__creator">
                     by Anton Babakhin
@@ -78,7 +78,7 @@ a:hover {
             <div class="Black-text main-text"><b id="layout">Layout</b> - layout styles. This type of styles should be applied to the structural blocks that are used on the page once.
                 It is header, footer, menu, sidebar etc.
             </div>
-            <div class="Black-text Align-center main-text"><img class="main-text__image" src="./dist/img/layout.png"></div>
+            <div class="Black-text Align-center main-text"><picture><img class="main-text__image" src="./dist/img/layout.png" alt="Layout blocks of abvCSS methodology" loading="lazy"></picture></div>
             <div class="Black-text main-text">In this way, you should use <b>id selectors</b>. Typical example of layout styles:</div>
             <pre><code class="language-css">#container {
   display: grid;
@@ -153,7 +153,7 @@ a:hover {
             <div class="Black-text main-text"><b id="skins">Skins</b> - skinning styles. Skins are styles that describe appearance of the elements.
                 This styles include text color, background color, shadow, rounded corners, decoration style etc.
             </div>
-            <div class="Black-text Align-center main-text"><img class="main-text__image" src="./dist/img/skins.png"></div>
+            <div class="Black-text Align-center main-text"><picture><img class="main-text__image" src="./dist/img/skins.png" alt="Different skins of abvCSS methodology" loading="lazy"></picture></div>
             <div class="Black-text main-text">For example, you can notice common decoration of blocks on the picture above: black text color, grey background, grey borders and shadow.
                 It is effective to add that styles to Skin class.</div>
             <div class="Black-text main-text">To recognize Skin classes and Blocks classes, all Skin classes begin with a <b>capital letter</b>.</div>
@@ -296,7 +296,7 @@ a:hover {
         </div>
         <div id="footer">
             <div class="footer">
-                <img class="footer__img" src="dist/img/abvCSS-logo.png" alt="abvCSS logo">
+                <picture><img class="footer__img" src="dist/img/abvCSS-logo.png" alt="abvCSS methodology logo" loading="lazy"></picture>
                 <div class="Grey-text footer__copyright">
                     Copyright © 2019 Anton Babakhin
                 </div>
@@ -310,7 +310,7 @@ a:hover {
         </div>
     </div>
     
-    <script src="./assets/prism.js"></script>
+    <script src="./assets/prism.js" async></script>
 
     <script>
         if ('serviceWorker' in navigator) {

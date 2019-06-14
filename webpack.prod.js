@@ -5,6 +5,7 @@ const postcssPresetEnv = require('postcss-preset-env');
 const imageminMozjpeg = require('imagemin-mozjpeg');
 const ImageminPlugin = require('imagemin-webpack-plugin').default;
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const WebpackCriticalCSSInliner = require('webpack-critical-css-inliner');
 const path = require('path');
 
 module.exports = merge(common, {
@@ -72,6 +73,15 @@ module.exports = merge(common, {
         new ImageminPlugin({
           pngquant: ({quality: '95'}),
           plugins: [imageminMozjpeg({quality: '90'})]
+        }),
+        new WebpackCriticalCSSInliner({
+          base: './',
+          src: 'index-intermediate.html',
+          target: 'index.html',
+          inlineGoogleFonts: true,
+          minify: true,
+          ignoreStylesheets: [/bootstrap/],
+          whitelist: /#foo|\.bar/
         })
     ]
 });
