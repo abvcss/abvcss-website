@@ -11,7 +11,7 @@
     "start:dev": "webpack-dev-server"
   },
   "dependencies": {
-    "jquery": "^3.3.1",
+    "jquery": "^3.4.0",
     "js-cookie": "^2.2.0",
     "normalize.css": "^8.0.1"
   },
