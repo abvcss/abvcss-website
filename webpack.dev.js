@@ -1,4 +1,4 @@
-const merge = require('webpack-merge');
+const { merge } = require('webpack-merge');
 const common = require('./webpack.common.js');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const postcssPresetEnv = require('postcss-preset-env');
@@ -14,8 +14,9 @@ module.exports = merge(common, {
             test: /\.(sass|scss)$/,
             use: [                
                 {
-                    loader: MiniCssExtractPlugin.loader, options: {
-                        sourceMap: true
+                    loader: MiniCssExtractPlugin.loader, 
+                    options: {
+                        publicPath: '/dist'
                     }
                 },
                 {
@@ -27,15 +28,16 @@ module.exports = merge(common, {
                 {
                     loader: 'postcss-loader', options: {
                         sourceMap: true,                          
-                        ident: 'postcss',                      
-                        plugins: [
-                            postcssPresetEnv({
-                                stage: 3,
-                                browsers: '> 5%',                                                          
-                                autoprefixer: { grid: true }
-                            }),
-                            require('rucksack-css')
-                        ]                        
+                        postcssOptions: {
+                            plugins: [
+                                postcssPresetEnv({
+                                    stage: 3,
+                                    browsers: '> 5%',                                                          
+                                    autoprefixer: { grid: true }
+                                }),
+                                require('rucksack-css')
+                            ]
+                        }
                     }
                 },                                
                 {
@@ -72,9 +74,10 @@ module.exports = merge(common, {
 
     // Learn https://web.dev/fast/use-imagemin-to-compress-images
     plugins: [
-        new CopyWebpackPlugin([{
-          from: 'img/**/**',
-          to: path.resolve(__dirname, 'dist')
-        }])
+        new CopyWebpackPlugin({
+            patterns: [
+                { from: 'img/**/**', to: path.resolve(__dirname, 'dist') }
+            ]
+        })
     ]
 });

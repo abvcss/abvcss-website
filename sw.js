@@ -3,7 +3,7 @@ importScripts('https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox
 if (workbox) {
 
     workbox.precaching.precacheAndRoute([
-        { url: './index.html', revision: '126' },
+        { url: './index.html', revision: '127' },
     ]);
 
     // handle js files

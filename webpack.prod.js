@@ -1,4 +1,4 @@
-const merge = require('webpack-merge');
+const { merge } = require('webpack-merge');
 const common = require('./webpack.common.js');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const postcssPresetEnv = require('postcss-preset-env');
@@ -15,7 +15,12 @@ module.exports = merge(common, {
         rules: [{
             test: /\.(sass|scss)$/,
             use: [                
-                MiniCssExtractPlugin.loader,
+                {
+                    loader: MiniCssExtractPlugin.loader, 
+                    options: {
+                        publicPath: '/dist'
+                    }
+                },
                 {
                     loader: 'css-loader', options: {
                         importLoaders: 1
@@ -23,17 +28,18 @@ module.exports = merge(common, {
                 },
                 {
                     loader: 'postcss-loader', options: {  
-                        ident: 'postcss',                      
-                        plugins: [
-                            postcssPresetEnv({
-                                stage: 3,
-                                browsers: '> 1%',                                
-                                autoprefixer: { grid: true }
-                            }),
-                            require('rucksack-css'),
-                            require('cssnano'),
-                            require('css-mqpacker')
-                        ]
+                        postcssOptions: {
+                            plugins: [
+                                postcssPresetEnv({
+                                    stage: 3,
+                                    browsers: '> 1%',                                
+                                    autoprefixer: { grid: true }
+                                }),
+                                require('rucksack-css'),
+                                require('cssnano'),
+                                require('css-mqpacker')
+                            ]
+                        }
                     }
                 },               
                 'sass-loader'
@@ -66,22 +72,23 @@ module.exports = merge(common, {
 
     // Learn https://web.dev/fast/use-imagemin-to-compress-images
     plugins: [
-        new CopyWebpackPlugin([{
-          from: 'img/**/**',
-          to: path.resolve(__dirname, 'dist')
-        }]),
+        new CopyWebpackPlugin({
+            patterns: [
+                { from: 'img/**/**', to: path.resolve(__dirname, 'dist') }
+            ]
+        }),
         new ImageminPlugin({
-          pngquant: ({quality: '95'}),
-          plugins: [imageminMozjpeg({quality: '90'})]
+            pngquant: ({quality: '95'}),
+            plugins: [imageminMozjpeg({quality: '90'})]
         }),
         new WebpackCriticalCSSInliner({
-          base: './',
-          src: 'index-intermediate.html',
-          target: 'index.html',
-          inlineGoogleFonts: true,
-          minify: true,
-          ignoreStylesheets: [/bootstrap/],
-          whitelist: /#foo|\.bar/
+            base: './',
+            src: 'index-intermediate.html',
+            target: 'index.html',
+            inlineGoogleFonts: true,
+            minify: true,
+            ignoreStylesheets: [/bootstrap/],
+            whitelist: /#foo|\.bar/
         })
     ]
 });

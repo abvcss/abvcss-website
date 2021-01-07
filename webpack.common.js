@@ -38,10 +38,12 @@ module.exports = {
             crossorigin: 'use-credentials', //can be null, use-credentials or anonymous
             inject: false,
             fingerprints: false,
+            publicPath: '/dist',
             icons: [
               {
                 src: path.resolve('img/abvCSS-icon.png'),
-                sizes: [96, 128, 192, 256, 384, 512] // multiple sizes
+                sizes: [96, 128, 192, 256, 384, 512], // multiple sizes
+                destination: 'auto',
               }
             ]
         }),
