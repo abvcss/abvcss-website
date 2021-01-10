@@ -2701,18 +2701,18 @@ cosmiconfig@^7.0.0:
     path-type "^4.0.0"
     yaml "^1.10.0"
 
-critical-css-inliner@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/critical-css-inliner/-/critical-css-inliner-1.0.1.tgz#c60100278b61ba84dc5736a70b01602349b9e0b2"
-  integrity sha512-ySGJY9gUNuNWtoPHfKmd/73k59npsgUJER9U/uuOtgyPhedYVlYIXcA5OHF8qv1YvZRX/a5vNJdDennh9QWQoQ==
+critical-css-inliner@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/critical-css-inliner/-/critical-css-inliner-1.1.0.tgz#51d984e725eca7cf943f52c1ee6a82de4ec557fc"
+  integrity sha512-A+naUbvziWP1V4INgTzZOjVmFme2DLPy1tkOcR+HWK5n0Ceu/viQw4jt6oG8dkeZ2U3SgVbYhcUaAR9Wf5H0EQ==
   dependencies:
-    critical-css-parser "^1.0.1"
+    critical-css-parser "^1.1.0"
     inline-critical "^6.0.3"
 
-critical-css-parser@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/critical-css-parser/-/critical-css-parser-1.0.1.tgz#dfd42da0a24d7b1f1182069830521f39b79783d4"
-  integrity sha512-hPPJRd45uj1IN/lHTVOjGPpsJ3tKAsI7izULyj2Z+1oxKuIaRLPIjlODPZ8uRL3J64sF3SmwkE+pMDjujzgk7g==
+critical-css-parser@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/critical-css-parser/-/critical-css-parser-1.1.0.tgz#45694056416811f13b936ffb2632059717c9bdfb"
+  integrity sha512-CaM59XfNnr/Ggmho3nd3gMKlj9Lq/4OfZwlvn3tpy1xQrVSa18Eg2+59n0ZNbzE2Kj9yyfAhTFFMhrFFUvuc1g==
   dependencies:
     axios "^0.21.1"
     csso "^4.2.0"
@@ -9635,12 +9635,12 @@ webpack-cli@^4.3.1:
     v8-compile-cache "^2.2.0"
     webpack-merge "^4.2.2"
 
-webpack-critical-css-inliner@1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/webpack-critical-css-inliner/-/webpack-critical-css-inliner-1.0.0.tgz#6d2aacf962f93c0da0e7f2c38a48afde48a48028"
-  integrity sha512-eV4JWLPh5TaWegdAGm/cIhD4eeVp2Svl8JFYKJiqtEN+fYeiGH4LNbOXlWvMHQ0psftzrYmSPL/ckOEwe87aqQ==
+webpack-critical-css-inliner@1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/webpack-critical-css-inliner/-/webpack-critical-css-inliner-1.1.0.tgz#fd577bf399e82af7c30f2b393a02bb19e3b42e60"
+  integrity sha512-CR+cg3c8QLHtdnlMEsgKStQkVv199C0R88viIMlO3MtXVrHb935Mj118V86j8y3UtS0n8jKXMHtTiW3lQLK2og==
   dependencies:
-    critical-css-inliner "^1.0.1"
+    critical-css-inliner "^1.1.0"
 
 webpack-dev-middleware@^3.7.2:
   version "3.7.3"
